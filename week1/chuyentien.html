@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen tien</title>
+</head>
+<body>
+
+
+
+  <form name="changes">
+  <input  id="mni" type="number"> Amount <br>
+  <p>To</p>
+
+  <select id="to">
+    <option value="vn"> Viet Nam</option>
+    <option value="usa"> USA </option>
+  </select>
+  <br> <p>from</p>
+  <select id="from">
+    <option value="vn"> Viet Nam</option>
+    <option value="usa"> USA </option>
+
+
+  </select>
+  <br>
+    <br>
+    <input type="button" value="Submit" onclick="chuyentien();">
+    <p>money: <input type="text" id="result" value=""></p>
+</form>
+
+
+<script>
+  function chuyentien() {
+    var mni = parseFloat(document.getElementById("mni").value);
+    var to = document.getElementById("to");
+    var from = document.getElementById("from");
+    var result = document.getElementById("result");
+
+    if (to.value === "vn" && from.value === "vn")  {
+      result.value = (mni * 1);
+    } else if (to.value === "vn" && from.value === "usa")  {
+      result.value = (mni/23000);
+    }
+
+    if (to.value === "usa" && from.value === "vn")  {
+      result.value = (mni * 23000);
+    }
+    if (to.value === "usa" && from.value === "usa")  {
+      result.value = (mni * 1);
+    }
+  }
+
+
+</script>
+
+
+
+</body>
+</html>
