@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>if else example 2</title>
+</head>
+<body>
+  <script>
+    var useName = prompt("who there ? ");
+    if(useName == 'Admin'){
+      var pass = prompt("Insert pass" );
+
+      if(pass == 'TheMaster'){
+        alert('Helloo');
+      }else if(pass == null){
+        alert('canceled');
+      }else {
+        alert('Wrong pass!!!');
+      }
+    }else if(useName == null){
+      alert('cancel')
+    }else{
+      alert('who ???')
+    }
+  </script>
+</body>
+</html>

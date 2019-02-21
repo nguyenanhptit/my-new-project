@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<body>
+<script>
+  // bai 1
+  // var a = parseInt(prompt('a'));
+  // var b = parseInt(prompt('b'));
+  //
+  // if(a%b == 0){
+  //   alert('a chia het cho b');
+  // }else{
+  //   alert('a khong chia het cho b');
+  // }
+
+  // bai 2
+  // var old= parseInt(prompt('insert old: '));
+  //
+  // if(old > 15){
+  //   alert(old +' lon hon 15 tuoi du dkieu hoc lop 10');
+  // }else {
+  //   alert(old+' nho hon 15 tuoi khong du dkien hoc lop 10');
+  // }
+
+  //bai 3
+  // var number = parseInt(prompt('insert number: '));
+  //
+  // if(number>0){
+  //   alert(number + ' > 0');
+  // }else if(number < 0){
+  //   alert(number + ' < 0');
+  // }else {
+  //   alert('= 0');
+  // }
+
+  //bai 4
+  // var num = parseInt(prompt('insert num:'));
+  // var num1 = parseInt(prompt('insert num1: '));
+  // var num2 =parseInt(prompt('insert num2:'));
+  //
+  // if(num >num1 && num> num2){
+  //   alert('so lon nhat la ' + num);
+  // }else  if(num1> num && num1 >num2){
+  //   alert(' so lon nhat la ' + num1);
+  // }else {
+  //   alert('so lon nhat la  '+num2);
+  // }
+
+  //bai 5
+  var diemgiuaki = parseFloat(prompt('diem giua ki'));
+  var diemcuoiki = parseFloat(prompt('diem cuoi ki: '));
+
+  var diemtrungbinh = parseFloat((diemgiuaki + diemcuoiki * 2)/3);
+
+  if(diemtrungbinh > 8){
+    alert('Loai gioi');
+  }else if (diemtrungbinh <8 && diemtrungbinh > 6.5){
+    alert('loai kha');
+  } else{
+    alert('loai trung binh');
+  }
+
+</script>
+</body>
+</html>

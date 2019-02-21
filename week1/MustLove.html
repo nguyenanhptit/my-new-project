@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do you love me</title>
+</head>
+<body>
+  <!--<form>-->
+    <p> do you love me ????</p>
+    <br>
+    <input type="button" value="Yes" onclick="yes();">
+  <input type="button" value="No"  id="no" onmouseover="no();" style="position: absolute;">
+  <!--</form>-->
+
+  <script>
+      function yes() {
+        alert('chuan cmnr');
+      }
+
+      function no() {
+        // alert('sai');
+        var dai = Math.floor(Math.random()*window.innerHeight);
+        var rong = Math.floor(Math.random()*window.innerHeight);
+
+        document.getElementById('no').style.top= dai + 'px';
+        document.getElementById('no').style.left = rong + 'px';
+      }
+  </script>
+</body>
+</html>

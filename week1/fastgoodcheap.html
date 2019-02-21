@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form >
+  <input type="checkbox" name="f" value="fast" onclick="Select(this)"> fast<br>
+  <input type="checkbox" name="g" value="good" onclick="Select(this)"> good <br>
+  <input type="checkbox" name="c" value="cheap" onclick="Select(this)" > cheap<br>
+</form>
+
+  <script>
+    function Select(select) {
+    var max =2;
+    var f = select.form.f.checked;
+    var g = select.form.g.checked;
+    var c = select.form.c.checked;
+
+    var count = (f ? 1:0) +(g ? 1:0)+ (c ? 1:0);
+
+    if(count>max){
+      alert('Over 2 choose');
+      select.checked =false;
+    }
+    }
+  </script>
+</body>
+
+
+</html>
