@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu dien</title>
+</head>
+<body>
+
+<input type="text" id="insert">
+<input type="button" value="Search" onclick="search();">
+<script>
+  function search() {
+    var insert = document.getElementById('insert').value;
+    var list1 = ["apple","black","car","delivery","eng"];
+    var list2 = ["tao", "den" , "xe", "van chuyen", "tieng anh"];
+
+
+    if(insert ==  list1[0]){
+      alert(list2[0]);
+    }else if  (insert ==  list1[1]){
+      alert(list2[1]);
+    }else if (insert ==  list1[2]) {
+      alert(list2[2]);
+    }else if (insert ==  list1[3]) {
+      alert(list2[3]);
+    }
+
+
+  }
+</script>
+</body>
+</html>

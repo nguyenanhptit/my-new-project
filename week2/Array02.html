@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen tap mang 02</title>
+</head>
+<body>
+  <script>
+  // bai 1-2-3
+  //   var array = [
+  //     [1,2,1,24],
+  //     [8,11,9,4],
+  //     [7,0,7,27],
+  //     [7,4,28,14],
+  //     [3,10,26,7]
+  //   ];
+  //
+  //   document.write(array.reverse()+"<br>");
+  //   count = 0;
+  //   for (var i =0 ; i<array.length;i++){
+  //     count++;
+  //   }
+  //   document.write('kich thuoc mang co '+count + ' ki tu');
+
+    // bai 4 -5-6
+    var array = prompt('Insert1 :' );
+    var array1 = prompt('Insert2 ')
+    document.write(' so tu chuoi 1 la ' + array.split(" ").length +" tu "+"<br>");
+
+    if(array=== array1){
+      document.write('hai chuoi giong nhau'+"<br>")
+    }else {
+      document.write('hai chuoi khac nhau'+"<br>");
+    }
+    array= array.split("");
+  for(var i=0; i<array.length; i++){
+    if(array[i]==="-"){
+      array[i]="_";
+    }
+  }
+
+  document.write(array.join(""));
+
+
+  </script>
+</body>
+</html>

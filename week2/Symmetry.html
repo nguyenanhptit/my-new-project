@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đối Xứng</title>
+</head>
+<body>
+
+<div >
+  nhap vao ki tu<br>
+  <input type="text" placeholder="Insert text" id="insert">
+  <br>
+</div>
+
+<p><input type="button" value="submit" onclick="isPalindrome()"></p>
+<div id="result"/>
+
+
+  <script>
+    function isPalindrome() {
+      var insert = document.getElementById('insert').value;
+
+      for(var  i=0 ;  i< insert.length - 1 ;i++){
+
+        for( var j = insert.length-1 ; j>i; j--){
+
+          if(insert.substr(i,1) != insert.substr(j,1)){
+            return document.getElementById('result').innerHTML="Khong doi xung";
+          }
+          return document.getElementById('result').innerHTML ="Doi Xung";
+        }
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vòng lặp 01</title>
+</head>
+<body>
+<script>
+
+  // bai 6
+  // var i=1;
+  // var dem=0
+  // var tong=0;
+  //
+  // while (dem<30){
+  //   if(i%7){
+  //     dem ++;
+  //     tong +=i;
+  //   }
+  //   i++
+  // }
+  // alert(tong);
+  //bai 7
+  //
+  // function fizzbuzz(num) {
+  //   var out ="";
+  //   if(num%3 === 0){out +=" fizz ";}
+  //   if(num%5 === 0){out +=" buzz ";}
+  //   if (out===""){return num+ ' ';}
+  //   return out;
+  // }
+  // for ( var i=1;i<101;i++){
+  //       document.write(fizzbuzz(i));
+  //
+  //     }
+
+  //bai 8
+
+  function random(min ,max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+  function game() {
+    var start = parseInt(prompt('nhap khoang bat dau '));
+    var end =parseInt(prompt('nhap khoang ket thuc '));
+    var randomnum = random(start,end);
+
+
+    for(var i= 0; i<3;i++){
+      if(i === 2) {
+        document.write('game over ');
+        break;
+      }var number = parseInt(prompt('Gio thi doan xem ('+ (2-i)+ 'lan )'));
+      if(number == randomnum ){
+        document.write('excilent... ');
+        break;
+      }else if(number > randomnum){
+        alert('lon hon roi , doan lai di ');
+      }else {
+        alert('nho hon roi , doan lai di ');
+      }
+    }
+
+
+  }
+</script>
+
+<button onclick="game();">Submit </button>
+</body>
+</html>

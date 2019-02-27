@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>luyen tap mang 01</title>
+</head>
+<body>
+
+
+<script>
+  //bai 1-2-3-4-5-6-7-8
+
+  var array = [0,1,3,71,9,6,10,24,96,62];
+  document.write("Mang : " + array+ "<br>");
+
+  var insert = prompt('insert number: ');
+
+  var count = 0;
+  var count1=0;
+  for(var ele of array){
+    if(ele>10){
+      count++;
+    }
+    if(ele == insert){
+      alert('So da ton tai');
+    }
+  }
+  document.write("co "+ count +" so lon 10 trong mang  " +"<br>");
+
+
+
+
+
+
+
+  var max = Math.max.apply(Math, array);
+  document.write("so lon nhat trong mang la : "+ max +"<br>");
+  document.write("mang dao nguoc :" + array.reverse()+ "<br>");
+
+
+  var sort = array.sort(function(a, b){return a-b});
+  document.write("mang sap xep la: "+ sort);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị nhỏ nhất của mảng</title>
+</head>
+<body>
+  <script>
+    var  arr = [3, 5, 1, 8, -3, 7, 8,11,56,22,96];
+
+    var min = Math.min.apply(Math,arr);
+    var sort = arr.sort(Sort);
+
+    function Sort(a,b) {
+     return a-b;
+    }
+    document.write('So nho nhat trong mang '+ min +"<br>");
+    document.write('Mang sap xep '+ sort );
+  </script>
+</body>
+</html>

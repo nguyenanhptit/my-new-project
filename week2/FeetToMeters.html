@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet và meters</title>
+</head>
+<body>
+
+
+
+  <input  id="insert" type="number">  <br>
+  <p>To</p>
+
+  <select id="from">
+    <option value="met"> Meter</option>
+    <option value="feet"> Feet </option>
+  </select>
+  <br> <p>from</p>
+  <select id="to">
+    <option value="met"> Meter</option>
+    <option value="feet"> Feet </option>
+
+
+  </select>
+  <br>
+  <br>
+  <input type="button" value="Submit" onclick="convert();">
+  <p>Chuyen doi: <input type="text" id="result" value=""></p>
+
+
+  <script>
+    function convert() {
+      var insert = document.getElementById('insert').value;
+      var to = document.getElementById('to');
+      var from = document.getElementById('from');
+      var result = document.getElementById('result');
+
+      if(from.value === "met" && to.value ==="met" || from.value==="feet" && to.value ==='feet'){
+        result.value = insert ;
+      }else if(from.value === "met" && to.value ==="feet"){
+        result.value=insert*3.278;
+      }else if(from.value === "feet" && to.value ==="met"){
+        result.value=insert*0.305;
+      }
+    }
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show so nguyen to</title>
+</head>
+<body>
+<script>
+function checknt(number) {
+
+  var snt= true;
+
+  if(number<2){
+    snt =false;
+  }else {
+    for (var i=2 ; i < number-1 ;i++){
+      if(number%i == 0){
+        snt= false;
+        break;
+      }
+    }
+  }
+
+ return snt;
+  //document.getElementById('result').innerHTML = 'la so nguyen to';
+}
+
+
+
+
+ function inSNT(){
+  var insert = document.getElementById("insert").value;
+  insert = parseInt(insert);
+   var count = 0;
+   for (var i = 1; i <= insert; i++) {
+     if (checknt(i)){
+       count += i + ' ';
+     }
+   }
+  document.getElementById("show").innerHTML = count;
+  if(checknt(insert)){
+    document.getElementById('result').innerHTML= insert+ ' la so nguyen to';
+  }else {
+    document.getElementById('result').innerHTML= insert+ ' khong la so nguyen to';
+  }
+
+}
+
+
+</script>
+
+
+  <input type="text" id="insert">
+  <input type="button" value="Submit" onclick="inSNT();">
+  <br>Cac so nguyen to no hon la:
+  <div  id="show"></div>
+  <div id="result"/>
+
+
+
+
+</body>
+</html>

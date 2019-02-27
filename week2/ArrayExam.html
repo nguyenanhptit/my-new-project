@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Add and record </p>
+<input type="text" id="value">
+<input type="button" onclick="Add();" id="add" value="add">
+<input type="button" onclick="Display();" id="display" value="display">
+<br>
+<div id="result"></div>
+  <script>
+    var x= 0;
+    var array = new Array();
+    function Add() {
+    array[x] = document.getElementById('value').value;
+    alert('ele ' + array[x] + ' add at index ' +x);
+    x++;
+      document.getElementById('value').value ="";
+    }
+
+    function Display() {
+      var e = " ";
+      for (var i=0; i<array.length; i++){
+        e += "ele " + i + " = " + array[i]+ "<br>";
+      }
+      document.getElementById('result').innerHTML =e;
+    }
+  </script>
+</body>
+</html>
