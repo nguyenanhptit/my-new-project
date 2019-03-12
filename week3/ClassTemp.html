@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lop nhiet do</title>
+</head>
+<body>
+<div><input type="number" id="temp" placeholder="Nhap nhiet do C" > </div>
+<input type="button" onclick="convert();" value="submit">
+<br>
+<span id="result"></span>
+</body>
+  <script>
+    function Temp(c) {
+      this.c =c;
+      this.toF = function () {
+        return this.c /0.55 +32;
+      };
+      this.toK =function () {
+
+        return  this.c + 273;
+      };
+    };
+
+    function insertTemp() {
+      var insert = document.getElementById("temp").value;
+      return insert;
+    }
+
+    function convert() {
+      var c = insertTemp();
+      var temp = new Temp(c);
+      document.getElementById("result").innerHTML = "C -> F: "+ temp.toF()+ "<br>"
+                                                    + "C -> K " + temp.toK();
+
+    }
+
+
+  </script>
+</html>

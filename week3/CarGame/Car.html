@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drive Car</title>
+</head>
+<body>
+<script src="CarPrototype.js"></script>
+<script>
+  var Keys = {
+    LEFT_ARROW: 37,
+    UP_ARROW: 38,
+    RIGHT_ARROW: 39,
+    DOWN_ARROW: 40
+  };
+
+  var ROAD_FRICTION = 0.05; // ma sat
+  var GRASS_FRICTION = 0.05;
+  var FPS = 20;
+  var AVAILABLE_KEYS =
+    [   Keys.UP_ARROW,
+      Keys.DOWN_ARROW,
+      Keys.LEFT_ARROW,
+      Keys.RIGHT_ARROW
+    ];
+  var canvas ;
+  var context;
+  var car;
+
+  var map = new Image();
+
+  var imageData;
+  var keyStates = [];
+
+  function clear() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
+
+  function init() {
+
+  canvas = document.getElementById('car');
+  context = canvas.getContext('2d');
+  context.font = "16px arial";
+  canvas.onkeydown = canvas_keyDown;
+  canvas.onkeyup = canvas_keyUp;
+
+  map.src = "map1-plain.png";
+  map.onload = function () {
+    context.drawImage(map,0,0,canvas.width,canvas.height);
+    imageData = context.getImageData(0,0,canvas.width, canvas.height);
+    window.setInterval(update,1000/FPS);
+  };
+  car = new Car(canvas.width-20,250,canvas.width,canvas.height);
+  car.friction =ROAD_FRICTION;
+};
+  function draw() {
+    clear();
+    context.drawImage(map,0,0,canvas.width, canvas.height);
+    car.draw(context);
+ var friction = ROAD_FRICTION;
+ for (var i = 0 ; i< car.vertices.length;i++){
+   var p =car.vertices[i];
+   console.log(p);
+   var index = Math.floor((p.x+p.y*imageData.width)*4*+3);
+
+   if(imageData.data[index]!= 0){
+     context.beginPath();
+     context.arc(p.x,p.y,3,0,2* Math.PI, false);
+     context.fill();
+
+     friction += GRASS_FRICTION;
+   }
+ }
+  car.friction = friction;
+  }
+  function  update() {
+    car.handleInput(keyStates);
+    car.update();
+    draw();
+  }
+
+  function canvas_keyDown(ele){
+    if(AVAILABLE_KEYS.indexOf(ele.keyCode !==-1))
+      keyStates[ele.keyCode] = true;
+  }
+  function canvas_keyUp(ele){
+    if(keyStates[ele.keyCode])
+      keyStates[ele.keyCode] = false;
+  }
+
+  window.onload = function () {
+    init();
+  }
+</script>
+
+<canvas id="car" width="500" height="400"
+        tabindex="1" style="border: 1px solid" ></canvas>
+</body>
+</html>

@@ -7,24 +7,57 @@
 <body>
 
 <form >
-  <input type="checkbox" name="f" value="fast" onclick="Select(this)"> fast<br>
-  <input type="checkbox" name="g" value="good" onclick="Select(this)"> good <br>
-  <input type="checkbox" name="c" value="cheap" onclick="Select(this)" > cheap<br>
+  <input type="checkbox" name="fast" value="fast" onclick="Select(this)"> fast<br>
+  <input type="checkbox" name="good" value="good" onclick="Select(this)"> good <br>
+  <input type="checkbox" name="cheap" value="cheap" onclick="Select(this)" > cheap<br>
 </form>
 
   <script>
     function Select(select) {
     var max =2;
-    var f = select.form.f.checked;
-    var g = select.form.g.checked;
-    var c = select.form.c.checked;
+    var fast = select.form.fast.checked;
+    var good = select.form.good.checked;
+    var cheap = select.form.cheap.checked;
 
-    var count = (f ? 1:0) +(g ? 1:0)+ (c ? 1:0);
+    var count = (fast ? 1:0) +(good ? 1:0)+ (cheap ? 1:0);
 
     if(count>max){
       alert('Over 2 choose');
       select.checked =false;
     }
+
+      switch (select) {
+        case "good":
+          good = good * (-1);
+          if (good === 1) {
+            if ((cheap === 1) && (fast === 1)) {
+              if (Math.round(Math.random()) === 1) {
+                cheap = cheap*(-1);
+              } else fast = fast*(-1);
+            }
+          }
+          break;
+        case "fast":
+          fast = fast * (-1);
+          if (fast === 1) {
+            if ((cheap === 1) && (good === 1)) {
+              if (Math.round(Math.random()) === 1) {
+                cheap = cheap*(-1);
+              } else good = good*(-1);
+            }
+          }
+          break;
+        case "cheap":
+          cheap = cheap * (-1);
+          if (cheap === 1) {
+            if ((good === 1) && (fast === 1)) {
+              if (Math.round(Math.random()) === 1) {
+                good = good*(-1);
+              } else fast = fast*(-1);
+            }
+          }
+          break;
+      }
     }
   </script>
 </body>

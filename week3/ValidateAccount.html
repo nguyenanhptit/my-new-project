@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate account</title>
+</head>
+<body>
+  <script>
+    function checkAcc(str) {
+      regexp = /^[a-z0-9_]{6,}$/;
+      if(regexp.test(str)){
+        return true;
+      }else {
+        return false;
+      }
+    };
+
+    var text = "12345";
+    console.log(checkAcc(text));
+  </script>
+</body>
+</html>

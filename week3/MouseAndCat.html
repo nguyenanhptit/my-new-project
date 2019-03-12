@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cat catch mouse</title>
+</head>
+<body>
+<span id="rs"></span>
+  <script>
+
+    var Rat = function (name, weight) {
+      this.name = name;
+      this.weight = weight;
+      this.speed = 100/weight;
+      this.islive = true;
+      this.speak = function () {
+        if(this.islive){
+          console.log( 'chit, chit');
+        }else{
+          console.log('die cmnr k keu duoc');
+        }
+      };
+
+      this.dead = function () {
+        if (this.islive) {
+          this.islive =false;
+          console.log('die cmnr');
+        }else {
+          console.log( 'die cmnr');
+        }
+      }
+    };
+    
+    var Cat = function (name, weight) {
+      this.name = name;
+      this.weight = weight;
+      this.speed = 300/weight;
+      this.haveAMouse = false;
+      this.speak = function () {
+        console.log('meo, meo');
+      };
+      this.catch = function (mouse) {
+        if(mouse.islive) {
+          this.speed += 50;
+
+          if (this.speed > mouse.speed) {
+            console.log( 'meo said : con chuot sap die cmnr');
+            console.log( this.name + " catch " + mouse.name);
+            this.haveAMouse = true;
+            mouse.iscatched = this.name;
+            this.speed += 10;
+          } else {
+            mouse.speed += 5;
+            console.log( mouse.name + " esc");
+          }
+        }
+      };
+
+      this.eat = function (mouse) {
+        if (mouse.iscatched === this.name){
+          this.weight += mouse.weight;
+          console.log(this.name + " eat " + mouse.name);
+          console.log(this.name + " increase " + this.weight);
+          mouse.dead();
+          this.haveAMouse =false;
+        }
+      };
+    };
+
+    let mouse1 = new Rat("mouse1", 1);
+    mouse1.speak();
+    let mouse2 = new Rat("mouse2", 0.5);
+    mouse2.speak();
+    let cat = new Cat("cat", 2);
+    cat.speak();
+    cat.catch(mouse1);
+    cat.catch(mouse2);
+    cat.eat(mouse1);
+    cat.speak();
+    cat.catch(mouse2);
+    cat.eat(mouse2);
+  </script>
+</body>
+</html>

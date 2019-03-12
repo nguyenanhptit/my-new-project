@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm kiếm giá trị lớn nhất hoặc nhỏ nhất</title>
+</head>
+<body>
+<span id="rs1"></span>
+<span id="rs2"></span>
+<span id="rs3"></span>
+  <script>
+    var num = [];
+    for (var i =0 ; i<100; i++) {
+      num[i] = Math.floor(Math.random() * 102);
+     // console.log(num)
+    }
+
+    function findMin(arr) {
+      let min = arr[0];
+      for (var i =1 ; i< arr.length; i++){
+        if(arr[i]<min){
+          min = arr[i];
+        }
+      }
+      return min;
+    };
+
+    function findMax(arr) {
+      let max = arr[0];
+      for (var i =1 ; i< arr.length; i++){
+        if(arr[i]>max){
+          max = arr[i];
+        }
+      }
+      return max;
+    };
+
+
+    function Display(arr) {
+      var e = " ";
+      for (var i=0; i<arr.length; i++){
+        e += "ele " + i + " = " + arr[i]+ "<br>";
+      }
+      document.getElementById("rs1").innerHTML = e ;
+      console.log(e)
+     // document.getElementById('result').innerHTML =" mang dao nguoc la: " + arr.reverse();
+
+    }
+
+
+    Display(num);
+    var minvalue = findMin(num);
+    var maxvalue = findMax(num);
+    document.getElementById("rs2").innerHTML="min value is " + minvalue;
+    document.getElementById("rs3").innerHTML="max value is " + maxvalue;
+
+
+
+  </script>
+</body>
+</html>

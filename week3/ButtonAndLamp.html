@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button and lamp</title>
+</head>
+<body>
+  <div> 
+    Button<br>
+
+    <input value="switchon" type="button" id="on" onclick="clickOn()">  <br>
+    <input value="switchoff" type="button" id="off" onclick="clickOff()">
+
+  </div>
+<br>
+<div>Lamp status in log:
+  <span id="result"> </span>
+</div>
+
+  <script>
+    var Lamp = function () {
+      this.status = false;
+      this.turnOn = function () {
+        if (this.status) {
+          console.log("lighting now")
+        } else {
+          console.log("Turned on");
+          this.status =true;
+        }
+      };
+      this.turnOff = function () {
+        if (this.status) {
+          console.log("Turned off");
+          this.status =false
+        } else {
+          console.log("den tat roi, tat cai gi nua")
+        }
+      };
+    };
+
+    var SwitchButton = function (lamp) {
+
+      this.lamp = lamp;
+
+      this.connect = function (conn) {
+        this.lamp = conn;
+        this.status =true;
+      }
+      this.setOn = function () {
+       if(this.status){
+         this.lamp.turnOn();
+       }
+      };
+
+      this.setOff = function () {
+        if(this.status){
+          this.lamp.turnOff();
+        }
+      };
+
+    };
+
+
+    var lamp = new Lamp();
+    var switchbutton = new SwitchButton(lamp);
+
+    switchbutton.connect(lamp);
+
+    var on = document.getElementById('on')===true;
+    var off = document.getElementById('off')===false;
+
+
+      function clickOn() {
+            switchbutton.setOn(on);
+      }
+      function clickOff() {
+            switchbutton.setOff(off);
+      }
+
+  </script>
+</body>
+</html>

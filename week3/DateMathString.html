@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Làm việc với các đối tượng thông dụng</title>
+</head>
+<body>
+<input type="text" id="value">
+<input type="button" onclick="Add()" value="Add">
+  <script>
+    // var curentdate = new Date();
+    // console.log(curentdate);
+    //
+    // var myDate = function (date) {
+    //     this.date =date;
+    //
+    //   this.alivey=function() {
+    //    var y = curentdate.getFullYear() - this.date.getFullYear();
+    //    console.log("so tuoi :"+y +" nam");
+    //
+    //   };
+    //   this.alivem = function() {
+    //    var m = (curentdate.getMonth() - this.date.getMonth()) + (curentdate.getFullYear()- this.date.getFullYear())*12 ;
+    //    console.log("So tuoi tinh bang thang: "+m +" thang");
+    //   };
+    // };
+    // var birdday =new Date(1996,6,24);
+    //
+    // var date = new myDate(birdday);
+    //
+    //
+    // console.log(date);
+    // date.alivey();
+    // date.alivem();
+
+    //Math
+
+    console.log(Math.random()*  (10 - 0) );
+
+    var x= 0;
+    var arr = new Array();
+    function Add() {
+      arr[x] = parseInt(document.getElementById('value').value);
+      x++;
+      console.log(arr);
+      var min = Math.min.apply(Math,arr);
+      console.log("so nho nhat trong mang: "+min);
+    }
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>

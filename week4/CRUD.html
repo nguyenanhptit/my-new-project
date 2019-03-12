@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+  <form>
+    <input type="text" id="add" >
+    <input type="button" value="submit" class="btn btn-success" onclick="app.Add()" >
+  </form>
+
+  <div>
+    <form >
+      <input type="text" id="edit">
+      <input type="button" value="Update" onclick="app.Update()">
+    </form>
+  </div>
+
+  <p id="counter"></p>
+  <table class="table data-reponsive">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Modify</th>
+    </tr>
+
+    </thead>
+
+    <tbody id="laptops">
+
+    </tbody>
+
+  </table>
+
+  <script>
+    var app = new function () {
+      this.el = document.getElementById("laptops");
+
+      this.laptops = ['Apple', 'Dell' , 'Hp'];
+      this.Count = function (data) {
+        let el = document.getElementById("counter");
+        let name = 'laptop';
+        if(data){
+          if (data>0){
+            name = 'laptops';
+          }
+          el.innerHTML = data + " " + name;
+        }else {
+          el.innerHTML = "no " + name;
+        }
+      };
+
+      this.fetchAll  = function () {
+        var data = '';
+        if(this.laptops.length > 0 ){
+          for (let i =0 ; i<this.laptops.length; i++){
+            data += '<tr>';
+            data += '<td>' + this.laptops[i] + '</td>';
+            data += '<td><button class="btn btn-primary" onclick="app.Edit('+i+')">Edit</button></td>';
+            data += '<td><button class="btn btn-danger" onclick="app.Delete('+i+')">Delete</button></td>';
+            data += '</tr>';
+          }
+        }
+
+      this.Count(this.laptops.length);
+        return this.el.innerHTML =data;
+      };
+
+      this.Add = function () {
+        let laptop = document.getElementById('add').value;
+
+        if (laptop){
+          this.laptops.push(laptop.trim());
+          //alert('add success')
+          // laptop = "";
+          this.fetchAll();
+        }
+      };
+
+      this.Edit = function (modelid) {
+        var ele = document.getElementById("edit");
+        ele.value = this.laptops[modelid];
+        // console.log(laptop)
+         //document.getElementById("spoiler").style.display = 'block';
+
+
+        this.Update = function(){
+        let laptop =ele.value;
+          if(laptop) {
+            this.laptops.splice(modelid, 1, laptop.trim());// xoa tai model 1 phan tu va them vao tai vi tri do
+            this.fetchAll();
+          }
+        }
+      };
+
+      this.Delete = function (modelid) {
+        this.laptops.splice(modelid,1);
+        this.fetchAll();
+      };
+
+      console.log(this.laptops);
+    };
+
+    app.fetchAll();
+  </script>
+</body>
+</html>

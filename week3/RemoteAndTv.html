@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>remote and tivi</title>
+</head>
+<body>
+<div>Remote
+  <input type="button" id="turnon" onclick="turntv()" value="On/Off">
+
+</div>
+<br>
+<div>
+  <input type="number" id="channelnum">
+  <input type="button" onclick="submitchannel()" value="submitchannel">
+  <br>change volume
+  <br>
+
+  <input type="button" id="volincrease" onclick="increasevol()" value="increase">
+  <input type="button" id="voldecrease" onclick="decreasevol()" value="decrease">
+
+</div>
+
+    <script>
+      var Tivi = function () {
+        //this.rmtcode =rmtcode;
+        this.channel =1;
+        this.volume = 1;
+        this.isOn = false;
+
+      this.turn =  function () {
+          if (this.isOn){
+            console.log('turn off tv');
+          }else {
+            console.log('turn on tv');
+            this.isOn = true;
+          }
+        };
+      
+      this.changechannel = function (numb) {
+          this.numb = numb;
+          if(this.isOn){
+            numb = Number(numb);
+            this.channel = numb;
+            console.log('Chuyen sang kenh ' + this.channel);
+            this.isOn = true;
+          }else {
+            console.log('khong chuyen duoc kenh - tv dang tat');
+          }
+        } ;
+      
+      this.increasevolume = function (numb) {
+          this.numb =numb;
+          if(this.isOn){
+            numb =1;
+            this.volume += numb;
+            console.log("Am luong hien tai " + this.volume );
+
+            this.isOn = true;
+          }else {
+            console.log('khong thay doi duoc am luong - tv dang tat');
+          }
+        };
+
+        this.decreasevolume = function (numb) {
+          this.numb =numb;
+          if(this.isOn){
+            numb =1;
+            this.volume -= numb;
+            console.log("Am luong hien tai " + this.volume );
+            this.isOn = true;
+          }else {
+            console.log('khong thay doi duoc am luong - tv dang tat');
+          }
+        };
+
+      };
+
+      var Remote = function (rmtcode) {
+        this.rmtcode= rmtcode;
+
+        this.rmtchannel =function ( numb) {
+            this.rmtcode.changechannel(numb);
+        };
+
+        this.incrmtvolume = function ( numb) {
+            this.rmtcode.increasevolume(numb);
+        };
+
+        this.decrmtvolume = function (numb) {
+            this.rmtcode.decreasevolume(numb);
+        };
+
+        this.turnonoff = function () {
+          this.rmtcode.turn();
+        };
+      };
+
+      function  channelnum() {
+        let a = document.getElementById('channelnum').value;
+        return a;
+      }
+
+      // let channel = document.getElementById('channelnum').value;
+
+      let tivi = new Tivi();
+      let tivirmt = new Remote(tivi);
+      console.log(tivi);
+
+
+     // tivi.changechannel(7);
+      // tivirmt.rmtchannel(3);
+      // tivirmt.incrmtvolume(5);
+      // tivirmt.decrmtvolume(4);
+      function submitchannel(){
+        // let a = document.getElementById('channelnum').value;
+        tivirmt.rmtchannel(channelnum());
+      }
+
+      function increasevol(){
+        tivirmt.incrmtvolume();
+      }
+      function decreasevol(){
+        tivirmt.decrmtvolume();
+      }
+
+      function turntv() {
+
+          tivi.turn();
+
+      }
+    </script>
+</body>
+</html>

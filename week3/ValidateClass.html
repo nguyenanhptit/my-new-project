@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate tên của lớp học</title>
+</head>
+<body>
+  <script>
+    function checkClassName(str) {
+      regexp = /^[A,C,P][0-9]{4,}[G, H, I, K, L, M]$/;
+      if (regexp.test(str)) {
+        alert("chuan khong phai chinh");
+      }else {
+        alert("chua chuan nen phai chinh");
+      }
+    }
+
+    var text = prompt('');
+    checkClassName(text);
+  </script>
+</body>
+</html>

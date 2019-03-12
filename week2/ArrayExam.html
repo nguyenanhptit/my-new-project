@@ -7,7 +7,7 @@
 <body>
 <p>Add and record </p>
 <input type="text" id="value">
-<input type="button" onclick="Add();" id="add" value="add">
+<input type="button" onclick="Add();"  value="add">
 <input type="button" onclick="Display();" id="display" value="display">
 <br>
 <div id="result"></div>
@@ -16,9 +16,10 @@
     var array = new Array();
     function Add() {
     array[x] = document.getElementById('value').value;
-    alert('ele ' + array[x] + ' add at index ' +x);
+    //alert('ele ' + array[x] + ' add at index ' +x);
     x++;
-      document.getElementById('value').value ="";
+      //document.getElementById('value').value ="";
+      console.log(array)
     }
 
     function Display() {
@@ -27,6 +28,8 @@
         e += "ele " + i + " = " + array[i]+ "<br>";
       }
       document.getElementById('result').innerHTML =e;
+      document.getElementById('result').innerHTML =" mang dao nguoc la: " + array.reverse();
+
     }
   </script>
 </body>

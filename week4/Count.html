@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số lần xuất hiện của phần tử</title>
+</head>
+<body>
+<span id="rs1"></span>
+<span id="rs2"></span>
+<span id="rs3"></span>
+  <script>
+
+    var num = [];
+    for (var i =0 ; i<100; i++) {
+      num[i] = Math.floor(Math.random() * 102);
+      // console.log(num)
+    }
+
+    function count(arr,insert) {
+      var count = 0;
+      var index=""
+      for(var i= 0; i< arr.length; i++){
+        if(arr[i] === insert){
+          count += 1;
+           index = i ;
+        }
+        document.getElementById("rs1").innerHTML= "so " + insert + " xuat hien " + count + " lan " + " tai vi tri " + index +"<br>" ;
+      }
+    }
+
+    function Display(arr) {
+      var e = " ";
+      for (var i=0; i<arr.length; i++){
+        e += "ele " + i + " = " + arr[i]+ "<br>";
+      }
+      document.getElementById("rs2").innerHTML = e ;
+      console.log(e)
+      // document.getElementById('result').innerHTML =" mang dao nguoc la: " + arr.reverse();
+
+    };
+
+    function sort(a,b) {
+      return a-b;
+    }
+
+
+    Display(num);
+    count(num , parseInt(prompt("")))
+    var sx = num.sort(sort);
+    document.getElementById('rs3').innerHTML =" mang sap xep  la: " + sx ;
+  </script>
+</body>
+</html>

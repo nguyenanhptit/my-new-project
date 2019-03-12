@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile</title>
+</head>
+<body>
+    <script>
+      var mobilePhone= function (name) {
+        this.name = name;
+        this.battery =100;
+        this.isOn= false;
+        this.message = "";
+        this.inbox = [];
+
+        this.turn =  function () {
+          if (this.isOn){
+            console.log('turn off ' + this.name);
+          }else {
+            console.log('turn on '  + this.name);
+            this.isOn = true;
+          }
+        };
+
+
+        this.inserttext = function (text) {
+          this.message = text;
+          this.battery -=1;
+          console.log(this.name + " dang soan tin nhan")
+        };
+
+        this.sendMess = function (name) {
+
+          if(this.isOn=== true){
+            name.inbox.push(this.message);
+            this.battery -=1;
+            console.log(this.name + " gui tin nhan , noi dung: " + this.message  );
+            console.log(this.name +" con lai : " + this.battery + "% pin")
+          }else {
+          console.log("chua bat dien thoai");
+          }
+        };
+
+        this.inboxMess = function () {
+          if(this.isOn === true){
+            let text = "";
+            for (let i = 0; i < this.inbox.length; i++) {
+              text +=this.inbox[i]  ;
+              this.battery -=1;
+              console.log(this.name + " nhan duoc tin nhan, Noi dung tin nhan : " + text );
+              console.log(this.name +" con lai : " + this.battery + "% pin")
+            }
+            this.isOn = true;
+          }else {
+            console.log("chua bat dien thoai");
+          }
+        };
+
+      };
+
+      var iphone = new mobilePhone("Iphone");
+      var samsung = new mobilePhone("SamSung");
+      iphone.turn();
+      samsung.turn();
+      iphone.inserttext("Danh nhau k?");
+      iphone.sendMess(samsung);
+      samsung.inboxMess();
+      
+    </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hinh chu nhat</title>
+</head>
+<body>
+<canvas id="hcn" ></canvas>
+
+<div>
+  <input type="text" id="height" placeholder="Nhap chieu dai">
+  <br>
+  <input type="text" id="width" placeholder="Nhap chieu rong">
+</div>
+  <input type="button" onclick="createRectangle();" value="submit">
+<br>
+<span id="result"></span>
+
+  <script>
+
+
+    function Rectangle(height,width) {
+      this.height = height;
+      this.width = width;
+      this.dientich = function () {
+        return this.width * this.height;
+      };
+      this.chuvi = function () {
+        return (this.width + this.height) * 2;
+      }
+
+    }
+
+    function getRandomHex() {
+      return Math.floor(Math.random() * 255);
+    }
+
+    function Color() {
+      var red = getRandomHex();
+      var green = getRandomHex();
+      var blue = getRandomHex();
+      return "rgb(" + red + "," + blue + "," + green + ")";
+
+    }
+
+    function insertHeight() {
+      var insertH = parseInt(document.getElementById('height').value);
+      return insertH;
+    }
+
+    function insertWidth() {
+      var insertW = parseInt(document.getElementById('width').value);
+      return insertW;
+    }
+
+    function createRectangle() {
+      var c = document.getElementById('hcn');
+      var ctx = c.getContext("2d");
+      var height = insertHeight();
+      var width = insertWidth();
+      var color = Color();
+      var hcn = new Rectangle(height, width);
+      ctx.beginPath();
+      ctx.fillStyle = color;
+      ctx.rect(20, 20, hcn.height, hcn.width);
+      ctx.fill();
+      document.getElementById('result').innerHTML = 'dien tich hcn la ' + hcn.dientich() +"<br>"
+        + "chu vi hinh chu nhat la " + hcn.chuvi();
+    }
+    createRectangle();
+
+
+  </script>
+</body>
+</html>

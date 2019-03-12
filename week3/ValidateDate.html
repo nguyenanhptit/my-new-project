@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+</head>
+<body>
+  <script>
+    // function checkDate(date) {
+    // regexp = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+    //
+    // if (regexp.test(date)) {
+    //   alert("chuan khong phai chinh");
+    // } else {
+    //   alert("chua chuan nen phai chinh");
+    // }
+    // }
+    // var date= prompt('');
+    // checkDate(date);
+
+    //UEOAI
+
+    function checkUeoai(str) {
+    regexp = /[ueoai]/gi;
+    if (regexp.test(str)) {
+        console.log('day co chua nguyen am');
+        console.log('So nguyen am la '+str.match(regexp).length)
+    }else {
+      console.log('day khon chua nguyen am');
+    }
+    console.log(str.length)
+    };
+
+    var text = prompt("");
+    checkUeoai(text )
+  </script>
+</body>
+</html>

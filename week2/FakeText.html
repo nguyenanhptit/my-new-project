@@ -9,14 +9,24 @@ Insert text <br>
 <textarea  id="insert" cols="30" rows="6" onkeydown="fake()"></textarea>
 
 <script >
-  var text = 'justlikejoke';
-  var insert = document.getElementById('insert').value;
+  var text = "justlikejoke";
+  var str= text.split("");
+  console.log(str);
+  var insert = document.getElementById('insert');
 
   function fake() {
-    var inserttext = "";
-    for (var i = 0; i <= insert.length; i++) {
+    let inserttext = "";
+    for (let i = 0; i < insert.value.length; i++) {
+      inserttext += str[i];
 
-
+    }
+    console.log(insert.value.length)
+    console.log(inserttext);
+    if (insert.value.length <= str.length) {
+      insert.value = inserttext;
+    }
+    else {
+      insert.value = null;
     }
   }
 </script>
