@@ -6,6 +6,7 @@
   <style>
     *{padding: 0 ; margin: 0;}
     canvas  {background: lightgrey; display: block; margin: 0 auto}
+
   </style>
 </head>
 <body>
@@ -14,23 +15,26 @@
   <script src="BallProperties.js"></script>
   <script src="BoxProperties.js"></script>
   <script src="Point.js"></script>
-
+  <script src="Laser.js"></script>
   <script>
   function draw() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    drawwBall();
-    darawPaddle();
+    redball.drawwBall();
+    bluepad.drawPaddle();
     drawBox();
     touch();
     drawScore();
     drawLive();
 
+    laze.drawwLaze();
+    laze.ly += laze.dly;
 
-    if( y + dy < ballRad) {      //len xuong check tai vien
-      dy = -dy;
-    }else if(y + dy > canvas.height - ballRad){
-      if(x>paddleX && x<paddleWidth + paddleX){
-        dy = -dy
+
+    if( redball.y + redball.dy < redball.ballRad) {      //len xuong check tai vien
+      redball.dy = -redball.dy;
+    }else if(redball.y + redball.dy > canvas.height - redball.ballRad){
+      if(redball.x>bluepad.paddleX && x<bluepad.paddleWidth + bluepad.paddleX){
+        redball.dy = -redball.dy
       }else {
 
         live--;
@@ -38,24 +42,24 @@
            alert("GAME OVER");
            document.location.reload();
         }else if(live >= 0){
-          x = canvas.width/2;
-          y = canvas.height-25;
-          dx = 2;
-          dy = -2;
-          paddleX = (canvas.width-paddleWidth)/2;
+          redball.x = canvas.width/2;
+          redball.y = canvas.height-20;
+          redball.dx = 2;
+          redball.dy = -2;
+          bluepad.paddleX = (canvas.width-bluepad.paddleWidth)/2;
         }
       }
     }
-    if(x + dx > canvas.width - ballRad || x + dx < ballRad) {       // trai phai
-      dx = -dx;
+    if(redball.x + redball.dx > canvas.width - redball.ballRad || redball.x + redball.dx < redball.ballRad) {       // trai phai
+      redball.dx = -redball.dx;
     }
-    if(rightPress && paddleX < canvas.width-paddleWidth){
-      paddleX +=3;
-    }else if(leftPress && paddleX > 0){
-      paddleX -=3;
+    if(bluepad.rightPress && bluepad.paddleX < canvas.width-bluepad.paddleWidth){
+      bluepad.paddleX +=3;
+    }else if(bluepad.leftPress && bluepad.paddleX > 0){
+      bluepad.paddleX -=3;
     }
-    x+= dx;
-    y+= dy;
+    redball.x += redball.dx;
+    redball.y += redball.dy;
     requestAnimationFrame(draw);
   };
 
